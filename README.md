@@ -3,6 +3,18 @@ About  Implementation of Kaneko et al.'s MaskCycleGAN-VC model for non-parallel 
 
 
 # Setup
+Clone the repository.
+
+```
+git clone git@github.com:DJBOYBLACKPINK/MaskCycleGAN-VC.git
+cd MaskCycleGAN-VC
+```
+
+Create the conda environment.
+```
+conda env create -f environment.yml
+conda activate MaskCycleGAN-VC
+```
 
 # NKRAFA Thai Dataset
 
