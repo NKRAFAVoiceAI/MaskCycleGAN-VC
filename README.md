@@ -10,7 +10,7 @@ Operating System.
 Ubuntu 22.04.4 LTS 64-bit
 ```
 
-Install Anaconda for Create Environment Python of Model.
+Install Anaconda to create a Python environment for the model.
 
 ```
 https://accuweb.cloud/resource/articles/install-anaconda-in-ubuntu-22-04-tutorial-for-beginners
@@ -164,6 +164,7 @@ Select the epoch to load your model from by setting `--load_epoch`.
 
 # Code Organization
 ```
+~Desktop/MaskCycleGAN-VC
 ├── README.md                       <- Top-level README.
 ├── environment.yml                 <- Conda environment
 ├── .gitignore
