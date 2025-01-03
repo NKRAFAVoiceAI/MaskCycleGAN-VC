@@ -95,6 +95,29 @@ python -W ignore::UserWarning -m mask_cyclegan_vc.train \
     --gpu_ids 0 \
 ```
 
+Example 
+
+```
+python -W ignore::UserWarning -m mask_cyclegan_vc.train \
+    --name mask_cyclegan_vc_SM01_TM02 \
+    --seed 0 \
+    --save_dir results/ \
+    --preprocessed_data_dir NKRAFA_Thai_preprocessed/training/ \
+    --speaker_A_id SM01 \
+    --speaker_B_id TM02 \
+    --epochs_per_save 100 \
+    --epochs_per_plot 10 \
+    --num_epochs 1600 \
+    --batch_size 1 \
+    --discriminator_lr 5e-4 \
+    --generator_lr 2e-4 \
+    --decay_after 1e4 \
+    --sample_rate 22050 \
+    --num_frames 64 \
+    --max_mask_len 25 \
+    --gpu_ids 0 \
+```
+
 To continue training from a previous checkpoint in the case that training is suspended, add the argument `--continue_train` while keeping all others the same. The model saver class will automatically load the most recently saved checkpoint and resume training.
 
 Launch Tensorboard in a separate terminal window.
@@ -108,14 +131,29 @@ Test your trained MaskCycleGAN-VC by converting between `<speaker_A_id>` and `<s
 
 ```
 python -W ignore::UserWarning -m mask_cyclegan_vc.test \
-    --name mask_cyclegan_vc_VCC2SF3_VCC2TF1 \
+    --name mask_cyclegan_vc_<speaker_A_id>_<speaker_B_id> \
     --save_dir results/ \
-    --preprocessed_data_dir vcc2018_preprocessed/vcc2018_evaluation \
+    --preprocessed_data_dir NKRAFA_Thai_preprocessed/evaluation \
     --gpu_ids 0 \
-    --speaker_A_id VCC2SF3 \
-    --speaker_B_id VCC2TF1 \
-    --ckpt_dir /data1/cycleGAN_VC3/mask_cyclegan_vc_VCC2SF3_VCC2TF1/ckpts \
-    --load_epoch 500 \
+    --speaker_A_id <speaker_A_id> \
+    --speaker_B_id <speaker_B_id> \
+    --ckpt_dir ~/Desktop/MaskCycleGAN-VC3/results/mask_cyclegan_vc_<speaker_A_id>_<speaker_B_id>/ckpts \
+    --load_epoch 1600 \
+    --model_name generator_A2B \
+```
+
+Example 
+
+```
+python -W ignore::UserWarning -m mask_cyclegan_vc.test \
+    --name mask_cyclegan_vc_SM01_TM02 \
+    --save_dir results/ \
+    --preprocessed_data_dir NKRAFA_Thai_preprocessed/evaluation \
+    --gpu_ids 0 \
+    --speaker_A_id SM01 \
+    --speaker_B_id TM02 \
+    --ckpt_dir ~/Desktop/MaskCycleGAN-VC3/results/mask_cyclegan_vc_SM01_TM02/ckpts \
+    --load_epoch 1600 \
     --model_name generator_A2B \
 ```
 
@@ -142,7 +180,7 @@ Select the epoch to load your model from by setting `--load_epoch`.
 │   ├── mask_cyclegan_test.sh       <- sample script to test MaskCycleGAN-VC
 │
 ├── data_preprocessing
-│   ├── preprocess_vcc2018.py       <- preprocess VCC2018 dataset
+│   ├── preprocess_vcc2018.py       <- preprocess NKRAFA Thai dataset
 │
 ├── dataset
 │   ├── vc_dataset.py               <- torch dataset class for MaskCycleGAN-VC
