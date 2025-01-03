@@ -125,7 +125,7 @@ Launch Tensorboard in a separate terminal window.
 tensorboard --logdir results/logs
 ```
 
-# Testing (Inference)
+# Testing / Inference / Evaluation
 
 Test your trained MaskCycleGAN-VC by converting between `<speaker_A_id>` and `<speaker_B_id>` on the evaluation dataset. Your converted .wav files are stored in `results/<name>/converted_audio`.
 
