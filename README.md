@@ -180,7 +180,7 @@ Select the epoch to load your model from by setting `--load_epoch`.
 │   ├── mask_cyclegan_test.sh       <- sample script to test MaskCycleGAN-VC
 │
 ├── data_preprocessing
-│   ├── preprocess_vcc2018.py       <- preprocess NKRAFA Thai dataset
+│   ├── preprocess_vcc2018.py       <- preprocess NKRAFA Thai Dataset
 │
 ├── dataset
 │   ├── vc_dataset.py               <- torch dataset class for MaskCycleGAN-VC
