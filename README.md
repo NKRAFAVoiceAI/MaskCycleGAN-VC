@@ -10,7 +10,7 @@ About  Implementation of Kaneko et al.'s MaskCycleGAN-VC model for non-parallel 
 
 # Training
 
-# Testing(Inference)
+# Testing (Inference)
 
 # Code Organization
 ```
