@@ -18,24 +18,20 @@ conda activate MaskCycleGAN-VC
 
 # NKRAFA Thai Dataset
 
-The authors of the paper used the dataset from the Spoke task of [Voice Conversion Challenge 2018 (VCC2018)](https://datashare.ed.ac.uk/handle/10283/3061). This is a dataset of non-parallel utterances from 6 male and 6 female speakers. Each speaker utters approximately 80 sentences.
+The authors of the paper used the dataset from the Spoke task of Navaminda Kasatriyadhiraj Royal Air Force Academy(NKRAFA). This is a dataset of non-parallel utterances from 3 male and 2 female speakers. Each speaker utters approximately 135 sentences.
 
 Download the dataset from the command line.
 ```
-wget --no-check-certificate https://datashare.ed.ac.uk/bitstream/handle/10283/3061/vcc2018_database_training.zip?sequence=2&isAllowed=y
-wget --no-check-certificate https://datashare.ed.ac.uk/bitstream/handle/10283/3061/vcc2018_database_evaluation.zip?sequence=3&isAllowed=y
-wget --no-check-certificate https://datashare.ed.ac.uk/bitstream/handle/10283/3061/vcc2018_database_reference.zip?sequence=5&isAllowed=y
+wget --no-check-certificate https://googledrive.com/NKRAFA_Thai_training.zip?sequence=2&isAllowed=y
+wget --no-check-certificate https://googledrive.com/NKRAFA_Thai_evaluation.zip?sequence=3&isAllowed=y
 ```
 
 Unzip the dataset file.
 ```
-mkdir vcc2018
+mkdir NKRAFA_Thai
 apt-get install unzip
-unzip vcc2018_database_training.zip?sequence=2 -d vcc2018/
-unzip vcc2018_database_evaluation.zip?sequence=3 -d vcc2018/
-unzip vcc2018_database_reference.zip?sequence=5 -d vcc2018/
-mv -v vcc2018/vcc2018_reference/* vcc2018/vcc2018_evaluation
-rm -rf vcc2018/vcc2018_reference
+unzip NKRAFA_Thai_training.zip?sequence=2 -d NKRAFA_Thai/
+unzip NKRAFA_Thai_evaluation.zip?sequence=3 -d NKRAFA_Thai/
 ```
 
 # Data Preprocessing
@@ -44,16 +40,16 @@ To expedite training, we preprocess the dataset by converting waveforms to melsp
 
 ```
 python data_preprocessing/preprocess_vcc2018.py \
-  --data_directory vcc2018/vcc2018_training \
-  --preprocessed_data_directory vcc2018_preprocessed/vcc2018_training \
-  --speaker_ids VCC2SF1 VCC2SF2 VCC2SF3 VCC2SF4 VCC2SM1 VCC2SM2 VCC2SM3 VCC2SM4 VCC2TF1 VCC2TF2 VCC2TM1 VCC2TM2
+  --data_directory NKRAFA_Thai/training \
+  --preprocessed_data_directory NKRAFA_Thai_preprocessed/training \
+  --speaker_ids SM01 TM02 TM03 TF04 TF05
 ```
 
 ```
 python data_preprocessing/preprocess_vcc2018.py \
-  --data_directory vcc2018/vcc2018_evaluation \
-  --preprocessed_data_directory vcc2018_preprocessed/vcc2018_evaluation \
-  --speaker_ids VCC2SF1 VCC2SF2 VCC2SF3 VCC2SF4 VCC2SM1 VCC2SM2 VCC2SM3 VCC2SM4 VCC2TF1 VCC2TF2 VCC2TM1 VCC2TM2
+  --data_directory NKRAFA_Thai/evaluation \
+  --preprocessed_data_directory NKRAFA_Thai_preprocessed/evaluation \
+  --speaker_ids SM01 TM02 TM03 TF04 TF05
 ```
 
 # Training
@@ -64,14 +60,15 @@ python -W ignore::UserWarning -m mask_cyclegan_vc.train \
     --name mask_cyclegan_vc_<speaker_id_A>_<speaker_id_B> \
     --seed 0 \
     --save_dir results/ \
-    --preprocessed_data_dir vcc2018_preprocessed/vcc2018_training/ \
+    --preprocessed_data_dir NKRAFA_Thai_preprocessed/training/ \
     --speaker_A_id <speaker_A_id> \
     --speaker_B_id <speaker_B_id> \
     --epochs_per_save 100 \
     --epochs_per_plot 10 \
-    --num_epochs 6172 \
+    --num_epochs 1600 \
     --batch_size 1 \
     --discriminator_lr 5e-4 \
+    --generator_lr 2e-4 \
     --decay_after 1e4 \
     --sample_rate 22050 \
     --num_frames 64 \
