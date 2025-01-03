@@ -137,7 +137,7 @@ python -W ignore::UserWarning -m mask_cyclegan_vc.test \
     --gpu_ids 0 \
     --speaker_A_id <speaker_A_id> \
     --speaker_B_id <speaker_B_id> \
-    --ckpt_dir ~/Desktop/MaskCycleGAN-VC3/results/mask_cyclegan_vc_<speaker_A_id>_<speaker_B_id>/ckpts \
+    --ckpt_dir ~/Desktop/MaskCycleGAN-VC/results/mask_cyclegan_vc_<speaker_A_id>_<speaker_B_id>/ckpts \
     --load_epoch 1600 \
     --model_name generator_A2B \
 ```
@@ -152,7 +152,7 @@ python -W ignore::UserWarning -m mask_cyclegan_vc.test \
     --gpu_ids 0 \
     --speaker_A_id SM01 \
     --speaker_B_id TM02 \
-    --ckpt_dir ~/Desktop/MaskCycleGAN-VC3/results/mask_cyclegan_vc_SM01_TM02/ckpts \
+    --ckpt_dir ~/Desktop/MaskCycleGAN-VC/results/mask_cyclegan_vc_SM01_TM02/ckpts \
     --load_epoch 1600 \
     --model_name generator_A2B \
 ```
