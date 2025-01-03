@@ -3,6 +3,13 @@ About  Implementation of Kaneko et al.'s MaskCycleGAN-VC model for non-parallel 
 
 
 # Setup
+
+Operating System.
+
+```
+Ubuntu 22.04.4 LTS 64-bit
+```
+
 Clone the repository.
 
 ```
