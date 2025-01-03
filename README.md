@@ -37,7 +37,7 @@ conda activate MaskCycleGAN-VC
 
 # NKRAFA Thai Dataset
 
-The authors of the paper used the dataset from the Spoke task of Navaminda Kasatriyadhiraj Royal Air Force Academy(NKRAFA). This is a dataset of non-parallel utterances from 3 male and 2 female speakers. Each speaker utters approximately 135 sentences.
+The authors of the paper used the dataset from the Spoke task of Navaminda Kasatriyadhiraj Royal Air Force Academy (NKRAFA). This is a dataset of non-parallel utterances from 3 male and 2 female speakers. Each speaker utters approximately 135 sentences.
 
 Download the dataset from the command line.
 ```
