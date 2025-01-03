@@ -71,7 +71,7 @@ python -W ignore::UserWarning -m mask_cyclegan_vc.train \
     --epochs_per_plot 10 \
     --num_epochs 6172 \
     --batch_size 1 \
-    --lr 5e-4 \
+    --discriminator_lr 5e-4 \
     --decay_after 1e4 \
     --sample_rate 22050 \
     --num_frames 64 \
