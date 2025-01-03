@@ -10,6 +10,18 @@ Operating System.
 Ubuntu 22.04.4 LTS 64-bit
 ```
 
+Install Anaconda for Create Environment Python of Model.
+
+```
+https://accuweb.cloud/resource/articles/install-anaconda-in-ubuntu-22-04-tutorial-for-beginners
+```
+
+Install CUDA Toolkit for using NVIDIA GPU’s CUDA capabilities.
+
+```
+https://www.cherryservers.com/blog/install-cuda-ubuntu
+```
+
 Clone the repository.
 
 ```
