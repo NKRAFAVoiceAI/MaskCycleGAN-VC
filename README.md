@@ -25,7 +25,7 @@ https://www.cherryservers.com/blog/install-cuda-ubuntu
 Clone the repository.
 
 ```
-git clone git@github.com:DJBOYBLACKPINK/MaskCycleGAN-VC.git
+git clone git@github.com:NKRAFAVoiceAI/MaskCycleGAN-VC.git
 cd MaskCycleGAN-VC
 ```
 
